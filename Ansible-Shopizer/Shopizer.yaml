@@ -95,10 +95,14 @@
     template: 
       src: context.xml.j2
       dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+    notify: 
+    - tomcat-8-restart
   - name: configure Host-Manager
     template: 
       src: context.xml.j2
       dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+    notify: 
+    - tomcat-8-restart
   - name: download shopizer from github
     git:
       repo: 'https://github.com/shopizer-ecommerce/shopizer.git'
