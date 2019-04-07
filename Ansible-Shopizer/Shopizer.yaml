@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: shopizer
   become: yes
   tasks:
   - name: add repo
@@ -20,11 +20,13 @@
     file:
       path: /opt/maven
       state: directory
+      mode: 0755
   - name: unarchive the apache-maven-3.6.0-bin.tar.gz
     unarchive: 
       src: /opt/apache-maven-3.6.0-bin.tar.gz
       dest: /opt/maven                            
       extra_opts: [--strip-components=1]
+      remote_src: yes
   - name: configure path of maven 
     template:
       src: mavenenv.sh.j2
@@ -32,19 +34,22 @@
   - name: change mode of /etc/profile.d/mavenenv.sh
     file:
       path: /etc/profile.d/mavenenv.sh
-      mode: 0755
+      mode: 0777
   - name: source /etc/profile.d/mavenenv.sh
-    shell: sudo -i source /etc/profile.d/mavenenv.sh
-  - name: install mysql-server
+    shell: sudo -s source /etc/profile.d/mavenenv.sh
+  - name: getting pip module
     apt:
-      name: mysql-server
-      update_cache: yes
-      state: present
-  - name: add  mysql-server user 
-    mysql_user: name=root
-      password=root12345
-      priv=*.*:ALL
-      state=present 
+     pkg: python-pip
+     state: present
+#  - name: Install the Python MySQLB module
+#    pip: 
+#     name: MySQL-python
+#     state: present      
+#  - name: add  mysql-server user 
+#    mysql_user: name=root
+#      password=root12345
+#      priv=*.*:ALL
+#      state=present 
   - name: Ensure group "tomcat" exists
     group:
       name: tomcat 
@@ -62,6 +67,7 @@
     file:
       path: /opt/tomcat
       state: directory
+      mode: 0755
   - name: Extract archive
     unarchive:
       src: /tmp/apache-tomcat-8.5.39.tar.gz
@@ -83,43 +89,62 @@
       dest: /etc/systemd/system/tomcat.service
     notify: 
     - tomcat-8-restart
-  - name: Configure Tomcat users
-    template: 
-      src: tomcat-users.xml.j2 
-      dest: /opt/tomcat/conf/tomcat-users.xml
-      mode: 1777
-      remote_src: yes
-    notify: 
+#  - name: Configure Tomcat users
+#    template: 
+#      src: tomcat-users.xml.j2 
+#      dest: /opt/tomcat/conf/tomcat-users.xml
+#      mode: 0755
+#      remote_src: yes
+#    notify: 
+#    - tomcat-8-restart
+  - name: remove tomcat-users.xml
+    file:
+      path: /opt/tomcat/conf/tomcat-user.xml
+      state: absent
+  - name: configure tomcat-user.xml
+    copy:
+      src: copy/tomcat-users.xml
+      dest: /opt/tomcat/conf/
+      mode: 0755 
+    notify:
     - tomcat-8-restart
+
   - name: configure Manager
     template: 
       src: context.xml.j2
       dest: /opt/tomcat/webapps/manager/META-INF/context.xml
-    notify: 
-    - tomcat-8-restart
   - name: configure Host-Manager
     template: 
       src: context.xml.j2
       dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
-    notify: 
-    - tomcat-8-restart
+  - name: create directory
+    file:
+      path: /opt/shopizer
+      state: directory
+      mode: 0755
   - name: download shopizer from github
     git:
       repo: 'https://github.com/shopizer-ecommerce/shopizer.git'
-      dest: /opt
+      dest: /opt/shopizer
       clone: yes
-  - name: change 
+  - name: change directory
     file: 
-      path: cd /opt/shopizer
+      path: /opt/shopizer
       mode: 0755
   - name: build shopizer 
-    shell: sudo mvn clean install
+    shell: "mvn clean install"
+    register: mvn_result
+  - name: "mvn clean task output"
+    debug:
+     var: mvn_result
   - name: copy ROOT.War to /opt/tomcat/webaps
     copy: 
       src: /opt/shopizer/sm-shop/target/ROOT.war
       dest: /opt/tomcat/webaps/ROOT.war
+      mode: 0755
   handlers:
     - name: tomcat-8-restart
       service: 
         name: restart tomcat 
         state: restarted
+
