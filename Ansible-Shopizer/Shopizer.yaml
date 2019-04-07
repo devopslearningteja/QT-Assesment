@@ -33,7 +33,7 @@
     file:
       path: /etc/profile.d/mavenenv.sh
       mode: 0755
-  - nmae: source /etc/profile.d/mavenenv.sh
+  - name: source /etc/profile.d/mavenenv.sh
     shell: sudo -i source /etc/profile.d/mavenenv.sh
   - name: install mysql-server
     apt:
