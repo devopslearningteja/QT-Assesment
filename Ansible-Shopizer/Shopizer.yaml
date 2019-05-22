@@ -1,0 +1,150 @@
+---
+- hosts: shopizer
+  become: yes
+  tasks:
+  - name: add repo
+    apt_repository: 
+      repo: ppa:openjdk-r/ppa    
+  - name: install openjdk-8
+    apt:
+      name: openjdk-8-jdk
+      update_cache: yes
+      state: present 
+  - name: change the directory to /opt
+    shell: cd /opt
+  - name: download apache-maven-3.6.0-bin.tar.gz
+    get_url:
+      url: http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt
+  - name: create directory
+    file:
+      path: /opt/maven
+      state: directory
+      mode: 0755
+  - name: unarchive the apache-maven-3.6.0-bin.tar.gz
+    unarchive: 
+      src: /opt/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt/maven                            
+      extra_opts: [--strip-components=1]
+      remote_src: yes
+  - name: configure path of maven 
+    template:
+      src: mavenenv.sh.j2
+      dest: /etc/profile.d/mavenenv.sh
+  - name: change mode of /etc/profile.d/mavenenv.sh
+    file:
+      path: /etc/profile.d/mavenenv.sh
+      mode: 0777
+  - name: source /etc/profile.d/mavenenv.sh
+    shell: sudo -s source /etc/profile.d/mavenenv.sh
+  - name: getting pip module
+    apt:
+     pkg: python-pip
+     state: present
+#  - name: Install the Python MySQLB module
+#    pip: 
+#     name: MySQL-python
+#     state: present      
+#  - name: add  mysql-server user 
+#    mysql_user: name=root
+#      password=root12345
+#      priv=*.*:ALL
+#      state=present 
+  - name: Ensure group "tomcat" exists
+    group:
+      name: tomcat 
+      state: present 
+  - name: Add the user 'tomcat' with a specific uid and a primary group of 'tomcat'
+    user:
+      name: tomcat 
+      comment: tomcat done
+      group: tomcat
+  - name: Download apache-tomcat-8.5.39.tar.gz
+    get_url:
+      url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
+      dest: /tmp/  
+  - name: create a directory tomcat if not exists
+    file:
+      path: /opt/tomcat
+      state: directory
+      mode: 0755
+  - name: Extract archive
+    unarchive:
+      src: /tmp/apache-tomcat-8.5.39.tar.gz
+      dest: /opt/tomcat                             
+      extra_opts: [--strip-components=1]
+      remote_src: yes
+  - name: change th directory to /opt/tomcat
+    shell: cd /opt/tomcat
+  - name: Change ownership of Tomcat installation
+    file: 
+      path: /opt/tomcat
+      owner: tomcat 
+      group: tomcat 
+      state: directory 
+      recurse: yes
+  - name: Configure Tomcat server
+    template: 
+      src: tomcat-server.xml.j2 
+      dest: /etc/systemd/system/tomcat.service
+    notify: 
+    - tomcat-8-restart
+#  - name: Configure Tomcat users
+#    template: 
+#      src: tomcat-users.xml.j2 
+#      dest: /opt/tomcat/conf/tomcat-users.xml
+#      mode: 0755
+#      remote_src: yes
+#    notify: 
+#    - tomcat-8-restart
+  - name: remove tomcat-users.xml
+    file:
+      path: /opt/tomcat/conf/tomcat-user.xml
+      state: absent
+  - name: configure tomcat-user.xml
+    copy:
+      src: copy/tomcat-users.xml
+      dest: /opt/tomcat/conf/
+      mode: 0755 
+    notify:
+    - tomcat-8-restart
+
+  - name: configure Manager
+    template: 
+      src: context.xml.j2
+      dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+  - name: configure Host-Manager
+    template: 
+      src: context.xml.j2
+      dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+  - name: create directory
+    file:
+      path: /opt/shopizer
+      state: directory
+      mode: 0755
+  - name: download shopizer from github
+    git:
+      repo: 'https://github.com/shopizer-ecommerce/shopizer.git'
+      dest: /opt/shopizer
+      clone: yes
+  - name: change directory
+    file: 
+      path: /opt/shopizer
+      mode: 0755
+  - name: build shopizer 
+    shell: "mvn clean install"
+    register: mvn_result
+  - name: "mvn clean task output"
+    debug:
+     var: mvn_result
+  - name: copy ROOT.War to /opt/tomcat/webaps
+    copy: 
+      src: /opt/shopizer/sm-shop/target/ROOT.war
+      dest: /opt/tomcat/webaps/ROOT.war
+      mode: 0755
+  handlers:
+    - name: tomcat-8-restart
+      service: 
+        name: restart tomcat 
+        state: restarted
+
