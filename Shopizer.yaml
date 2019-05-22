@@ -1,0 +1,125 @@
+---
+- host: all
+  become: yes
+  tasks:
+  - name: add repo
+    apt_repository: 
+      repo: ppa:openjdk-r/ppa    
+  - name: install openjdk-8
+    apt:
+      name: openjdk-8-jdk
+      update_cache: yes
+      state: present 
+  - name: change the directory to /opt
+    shell: cd /opt
+  - name: download apache-maven-3.6.0-bin.tar.gz
+    get_url:
+      url: http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt
+  - name: create directory
+    file:
+      path: /opt/maven
+      state: directory
+  - name: unarchive the apache-maven-3.6.0-bin.tar.gz
+    unarchive: 
+      src: /opt/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt/maven                            
+      extra_opts: [--strip-components=1]
+  - name: configure path of maven 
+    template:
+      src: mavenenv.sh.j2
+      dest: /etc/profile.d/mavenenv.sh
+  - name: change mode of /etc/profile.d/mavenenv.sh
+    file:
+      path: /etc/profile.d/mavenenv.sh
+      mode: 0755
+  - nmae: source /etc/profile.d/mavenenv.sh
+    shell: sudo -s source /etc/profile.d/mavenenv.sh
+  - name: install mysql-server
+    apt:
+      name: mysql-server
+      update_cache: yes
+      state: present
+  - name: add  mysql-server user 
+    mysql_user: name=root
+      password=root12345
+      priv=*.*:ALL
+      state=present 
+  - name: Ensure group "tomcat" exists
+    group:
+      name: tomcat 
+      state: present 
+  - name: Add the user 'tomcat' with a specific uid and a primary group of 'tomcat'
+    user:
+      name: tomcat 
+      comment: tomcat done
+      group: tomcat
+  - name: Download apache-tomcat-8.5.39.tar.gz
+    get_url:
+      url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
+      dest: /tmp/  
+  - name: create a directory tomcat if not exists
+    file:
+      path: /opt/tomcat
+      state: directory
+  - name: Extract archive
+    unarchive:
+      src: /tmp/apache-tomcat-8.5.39.tar.gz
+      dest: /opt/tomcat                             
+      extra_opts: [--strip-components=1]
+      remote_src: yes
+  - name: change th directory to /opt/tomcat
+    shell: cd /opt/tomcat
+  - name: Change ownership of Tomcat installation
+    file: 
+      path: /opt/tomcat
+      owner: tomcat 
+      group: tomcat 
+      state: directory 
+      recurse: yes
+  - name: Configure Tomcat server
+    template: 
+      src: tomcat-server.xml.j2 
+      dest: /etc/systemd/system/tomcat.service
+    notify: 
+    - tomcat-8-restart
+  - name: Configure Tomcat users
+    template: 
+      src: tomcat-users.xml.j2 
+      dest: /opt/tomcat/conf/tomcat-users.xml
+      mode: 1777
+      remote_src: yes
+    notify: 
+    - tomcat-8-restart
+  - name: configure Manager
+    template: 
+      src: context.xml.j2
+      dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+    notify: 
+    - tomcat-8-restart
+  - name: configure Host-Manager
+    template: 
+      src: context.xml.j2
+      dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+    notify: 
+    - tomcat-8-restart
+  - name: download shopizer from github
+    git:
+      repo: 'https://github.com/shopizer-ecommerce/shopizer.git'
+      dest: /opt
+      clone: yes
+  - name: change 
+    file: 
+      path: cd /opt/shopizer
+      mode: 0755
+  - name: build shopizer 
+    shell: sudo mvn clean install
+  - name: copy ROOT.War to /opt/tomcat/webaps
+    copy: 
+      src: /opt/shopizer/sm-shop/target/ROOT.war
+      dest: /opt/tomcat/webaps/ROOT.war
+  handlers:
+    - name: tomcat-8-restart
+      service: 
+        name: restart tomcat 
+        state: restarted
