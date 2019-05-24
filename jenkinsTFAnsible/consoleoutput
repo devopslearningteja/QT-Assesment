@@ -1499,7 +1499,7 @@ Gameoflifeip = 3.80.28.105[0m
 [Pipeline] sh
 + sleep 2m
 [Pipeline] sh
-+ terraform destroy -var accesskey=AKIAUCPFQ2VRVIA46SVP -var secretekey=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 -auto-approve .
++ terraform destroy -var accesskey=****************** -var secretekey=*************************** -auto-approve .
 [0m[1maws_vpc.MyVpc: Refreshing state... (ID: vpc-09619030abaf66b3c)[0m
 [0m[1maws_subnet.mysubnet: Refreshing state... (ID: subnet-0ad20335b9990dc6d)[0m
 [0m[1maws_internet_gateway.myigw: Refreshing state... (ID: igw-00db91edd243c6d9a)[0m
