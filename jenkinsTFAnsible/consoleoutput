@@ -303,7 +303,7 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.[0m
 [Pipeline] sh
-+ terraform apply -var accesskey=AKIAUCPFQ2VRVIA46SVP -var secretekey=IDpfNdFTlt3xbOA8SY1+NSyFA1rYvECKgVBPK7BN -auto-approve .
++ terraform apply -var accesskey=**************** -var secretekey=********************************** -auto-approve .
 [0m[1mmodule.TF_ANSIBLE.aws_vpc.MyVpc: Creating...[0m
   arn:                              "" => "<computed>"
   assign_generated_ipv6_cidr_block: "" => "false"
