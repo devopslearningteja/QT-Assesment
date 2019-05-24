@@ -1,0 +1,1535 @@
+Started by user dharmateja
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on TestNode in /home/jenkins/workspace/tfansible
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (scm)
+[Pipeline] git
+No credentials specified
+Fetching changes from the remote Git repository
+Checking out Revision c24bb1ae41bfd5980ce9f0aa8b9a636b920c71fd (refs/remotes/origin/master)
+Commit message: "Merge pull request #198 from GeraldScott/master"
+ > git rev-parse --is-inside-work-tree # timeout=10
+ > git config remote.origin.url https://github.com/wakaleo/game-of-life.git # timeout=10
+Fetching upstream changes from https://github.com/wakaleo/game-of-life.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/wakaleo/game-of-life.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c24bb1ae41bfd5980ce9f0aa8b9a636b920c71fd
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master c24bb1ae41bfd5980ce9f0aa8b9a636b920c71fd
+ > git rev-list --no-walk c24bb1ae41bfd5980ce9f0aa8b9a636b920c71fd # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (build)
+[Pipeline] sh
++ mvn package
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] gameoflife
+[INFO] gameoflife-build
+[INFO] gameoflife-core
+[INFO] gameoflife-web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building gameoflife 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initialize) @ gameoflife ---
+[INFO] argLine set to -javaagent:/home/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/jenkins/workspace/tfansible/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /home/jenkins/workspace/tfansible/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife ---
+[INFO] /home/jenkins/workspace/tfansible/src/test/stories does not exists.  Skipping easyb testing
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building gameoflife-build 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-build ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife-build ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initialize) @ gameoflife-build ---
+[INFO] argLine set to -javaagent:/home/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/jenkins/workspace/tfansible/gameoflife-build/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-build ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gameoflife-build ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/tfansible/gameoflife-build/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameoflife-build ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-build ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-build ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /home/jenkins/workspace/tfansible/gameoflife-build/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-build ---
+[INFO] /home/jenkins/workspace/tfansible/gameoflife-build/src/test/stories does not exists.  Skipping easyb testing
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gameoflife-build ---
+[INFO] Building jar: /home/jenkins/workspace/tfansible/gameoflife-build/target/gameoflife-build-1.0-SNAPSHOT.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building gameoflife-core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/tfansible/gameoflife-core/src/main/resources
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initialize) @ gameoflife-core ---
+[INFO] argLine set to -javaagent:/home/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/jenkins/workspace/tfansible/gameoflife-core/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/jenkins/workspace/tfansible/gameoflife-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gameoflife-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/tfansible/gameoflife-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameoflife-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /home/jenkins/workspace/tfansible/gameoflife-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-core ---
+[INFO] Surefire report directory: /home/jenkins/workspace/tfansible/gameoflife-core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.wakaleo.gameoflife.domain.WhenYouCreateAGrid
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec
+Running com.wakaleo.gameoflife.domain.WhenYouCreateACell
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.wakaleo.gameoflife.domain.WhenYouPrintAGrid
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.wakaleo.gameoflife.domain.WhenYouPlayTheGameOfLife
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+
+Results :
+
+Tests run: 49, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-core ---
+[INFO] Using easyb dependency org.easyb:easyb-core:jar:1.6:compile
+[INFO] Using easyb dependency org.easyb:easyb-composite-groovy:pom:1.2:compile
+[INFO] Using easyb dependency org.codehaus.groovy:groovy-all:jar:2.3.6:compile
+[INFO] Using easyb dependency org.easyb:easyb-ast:jar:1.1:compile
+[INFO] Using easyb dependency commons-cli:commons-cli:jar:1.2:compile
+[INFO] Using easyb dependency commons-lang:commons-lang:jar:2.5:compile
+     [java] Running multiplying things story (/home/jenkins/workspace/tfansible/gameoflife-core/src/test/stories/MultiplyingThings.story)
+     [java] Scenarios run: 1, Failures: 0, Pending: 1, Time elapsed: 0.653 sec
+     [java] Running counting things story (/home/jenkins/workspace/tfansible/gameoflife-core/src/test/stories/CountingThings.story)
+     [java] Scenarios run: 1, Failures: 0, Pending: 0, Time elapsed: 0.135 sec
+     [java] 2 total behaviors ran with no failures
+     [java] Writing JUnit report to /home/jenkins/workspace/tfansible/gameoflife-core/target/surefire-reports/TEST-behavior.MultiplyingThings.xml
+     [java] JUnit report written to /home/jenkins/workspace/tfansible/gameoflife-core/target/surefire-reports/TEST-behavior.MultiplyingThings.xml
+     [java] Writing JUnit report to /home/jenkins/workspace/tfansible/gameoflife-core/target/surefire-reports/TEST-behavior.CountingThings.xml
+     [java] JUnit report written to /home/jenkins/workspace/tfansible/gameoflife-core/target/surefire-reports/TEST-behavior.CountingThings.xml
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gameoflife-core ---
+[INFO] Building jar: /home/jenkins/workspace/tfansible/gameoflife-core/target/gameoflife-core-1.0-SNAPSHOT.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building gameoflife-web 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-web ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initialize) @ gameoflife-web ---
+[INFO] argLine set to -javaagent:/home/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/jenkins/workspace/tfansible/gameoflife-web/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/jenkins/workspace/tfansible/gameoflife-web/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gameoflife-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/tfansible/gameoflife-web/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameoflife-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/jenkins/workspace/tfansible/gameoflife-web/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-web ---
+[INFO] Surefire report directory: /home/jenkins/workspace/tfansible/gameoflife-web/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.wakaleo.gameoflife.webtests.controllers.WhenDisplayingTheHomePage
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 sec
+Running com.wakaleo.gameoflife.webtests.controllers.WhenCreatingANewGame
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.522 sec
+Running com.wakaleo.gameoflife.webtests.controllers.WhenSpawningANewGeneration
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-web ---
+[INFO] /home/jenkins/workspace/tfansible/gameoflife-web/src/test/stories does not exists.  Skipping easyb testing
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ gameoflife-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [gameoflife-web] in [/home/jenkins/workspace/tfansible/gameoflife-web/target/gameoflife]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/jenkins/workspace/tfansible/gameoflife-web/src/main/webapp]
+[INFO] Webapp assembled in [91 msecs]
+[INFO] Building war: /home/jenkins/workspace/tfansible/gameoflife-web/target/gameoflife.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] gameoflife ......................................... SUCCESS [  3.372 s]
+[INFO] gameoflife-build ................................... SUCCESS [  1.739 s]
+[INFO] gameoflife-core .................................... SUCCESS [  7.234 s]
+[INFO] gameoflife-web ..................................... SUCCESS [  2.914 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 15.946 s
+[INFO] Finished at: 2019-05-24T10:57:37+00:00
+[INFO] Final Memory: 24M/59M
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (terraform)
+[Pipeline] git
+No credentials specified
+Fetching changes from the remote Git repository
+Checking out Revision 057b3831c579cdf7907d828013548e61f99528f4 (refs/remotes/origin/master)
+Commit message: "change module source path"
+ > git rev-parse --is-inside-work-tree # timeout=10
+ > git config remote.origin.url https://github.com/dharmatejadevops/tfmoduleansible.git # timeout=10
+Fetching upstream changes from https://github.com/dharmatejadevops/tfmoduleansible.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/dharmatejadevops/tfmoduleansible.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 057b3831c579cdf7907d828013548e61f99528f4
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 057b3831c579cdf7907d828013548e61f99528f4
+ > git rev-list --no-walk 057b3831c579cdf7907d828013548e61f99528f4 # timeout=10
+[Pipeline] sh
++ cd /home/jenkins/workspace/tfansible/
+[Pipeline] sh
++ terraform init
+[0m[1mInitializing modules...[0m
+- module.TF_ANSIBLE
+
+[0m[1mInitializing provider plugins...[0m
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.aws: version = "~> 2.12"
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[Pipeline] sh
++ terraform apply -var accesskey=AKIAUCPFQ2VRVIA46SVP -var secretekey=IDpfNdFTlt3xbOA8SY1+NSyFA1rYvECKgVBPK7BN -auto-approve .
+[0m[1mmodule.TF_ANSIBLE.aws_vpc.MyVpc: Creating...[0m
+  arn:                              "" => "<computed>"
+  assign_generated_ipv6_cidr_block: "" => "false"
+  cidr_block:                       "" => "10.15.0.0/16"
+  default_network_acl_id:           "" => "<computed>"
+  default_route_table_id:           "" => "<computed>"
+  default_security_group_id:        "" => "<computed>"
+  dhcp_options_id:                  "" => "<computed>"
+  enable_classiclink:               "" => "<computed>"
+  enable_classiclink_dns_support:   "" => "<computed>"
+  enable_dns_hostnames:             "" => "<computed>"
+  enable_dns_support:               "" => "true"
+  instance_tenancy:                 "" => "default"
+  ipv6_association_id:              "" => "<computed>"
+  ipv6_cidr_block:                  "" => "<computed>"
+  main_route_table_id:              "" => "<computed>"
+  owner_id:                         "" => "<computed>"
+  tags.%:                           "" => "1"
+  tags.Name:                        "" => "MyVpc"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_vpc.MyVpc: Creation complete after 1s (ID: vpc-09619030abaf66b3c)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_security_group.mysg: Creating...[0m
+  arn:                                  "" => "<computed>"
+  description:                          "" => "Managed by Terraform"
+  egress.#:                             "" => "1"
+  egress.482069346.cidr_blocks.#:       "" => "1"
+  egress.482069346.cidr_blocks.0:       "" => "0.0.0.0/0"
+  egress.482069346.description:         "" => ""
+  egress.482069346.from_port:           "" => "0"
+  egress.482069346.ipv6_cidr_blocks.#:  "" => "0"
+  egress.482069346.prefix_list_ids.#:   "" => "0"
+  egress.482069346.protocol:            "" => "-1"
+  egress.482069346.security_groups.#:   "" => "0"
+  egress.482069346.self:                "" => "false"
+  egress.482069346.to_port:             "" => "0"
+  ingress.#:                            "" => "1"
+  ingress.482069346.cidr_blocks.#:      "" => "1"
+  ingress.482069346.cidr_blocks.0:      "" => "0.0.0.0/0"
+  ingress.482069346.description:        "" => ""
+  ingress.482069346.from_port:          "" => "0"
+  ingress.482069346.ipv6_cidr_blocks.#: "" => "0"
+  ingress.482069346.prefix_list_ids.#:  "" => "0"
+  ingress.482069346.protocol:           "" => "-1"
+  ingress.482069346.security_groups.#:  "" => "0"
+  ingress.482069346.self:               "" => "false"
+  ingress.482069346.to_port:            "" => "0"
+  name:                                 "" => "musg"
+  owner_id:                             "" => "<computed>"
+  revoke_rules_on_delete:               "" => "false"
+  tags.%:                               "" => "1"
+  tags.Name:                            "" => "mysg"
+  vpc_id:                               "" => "vpc-09619030abaf66b3c"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Creating...[0m
+  owner_id:  "" => "<computed>"
+  tags.%:    "0" => "1"
+  tags.Name: "" => "myigw"
+  vpc_id:    "" => "vpc-09619030abaf66b3c"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_subnet.mysubnet: Creating...[0m
+  arn:                             "" => "<computed>"
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "<computed>"
+  availability_zone_id:            "" => "<computed>"
+  cidr_block:                      "" => "10.15.0.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  owner_id:                        "" => "<computed>"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "mysubnet"
+  vpc_id:                          "" => "vpc-09619030abaf66b3c"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Creation complete after 1s (ID: igw-00db91edd243c6d9a)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table.myrt: Creating...[0m
+  owner_id:                                  "" => "<computed>"
+  propagating_vgws.#:                        "" => "<computed>"
+  route.#:                                   "" => "1"
+  route.216786659.cidr_block:                "" => "0.0.0.0/0"
+  route.216786659.egress_only_gateway_id:    "" => ""
+  route.216786659.gateway_id:                "" => "igw-00db91edd243c6d9a"
+  route.216786659.instance_id:               "" => ""
+  route.216786659.ipv6_cidr_block:           "" => ""
+  route.216786659.nat_gateway_id:            "" => ""
+  route.216786659.network_interface_id:      "" => ""
+  route.216786659.transit_gateway_id:        "" => ""
+  route.216786659.vpc_peering_connection_id: "" => ""
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "myrt"
+  vpc_id:                                    "" => "vpc-09619030abaf66b3c"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_subnet.mysubnet: Creation complete after 1s (ID: subnet-0ad20335b9990dc6d)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table.myrt: Creation complete after 0s (ID: rtb-0c0347cba533cba57)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table_association.myasso: Creating...[0m
+  route_table_id: "" => "rtb-0c0347cba533cba57"
+  subnet_id:      "" => "subnet-0ad20335b9990dc6d"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table_association.myasso: Creation complete after 1s (ID: rtbassoc-04a97839468e7532e)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_security_group.mysg: Creation complete after 2s (ID: sg-0df7893fe6eef9df9)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Creating...[0m
+  ami:                               "" => "ami-0a313d6098716f372"
+  arn:                               "" => "<computed>"
+  associate_public_ip_address:       "" => "true"
+  availability_zone:                 "" => "<computed>"
+  cpu_core_count:                    "" => "<computed>"
+  cpu_threads_per_core:              "" => "<computed>"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  host_id:                           "" => "<computed>"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.micro"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "AnsibleCM"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-0ad20335b9990dc6d"
+  tags.%:                            "" => "1"
+  tags.Name:                         "" => "GameofLife"
+  tenancy:                           "" => "<computed>"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "1"
+  vpc_security_group_ids.1341908069: "" => "sg-0df7893fe6eef9df9"[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (10s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (20s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (30s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Provisioning with 'file'...[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (40s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Provisioning with 'remote-exec'...[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Connecting to remote host via SSH...
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   Host: 3.80.28.105
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   User: ubuntu
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   Password: false
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   Private key: true
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   SSH Agent: false
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   Checking Host Key: false
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Connected!
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Cloning into 'ansible-deploy'...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Enumerating objects: 70, done.[K
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   1% (1/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   2% (2/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   4% (3/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   5% (4/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   7% (5/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:   8% (6/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  10% (7/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  11% (8/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  12% (9/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  14% (10/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  15% (11/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  17% (12/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  18% (13/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  20% (14/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  21% (15/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  22% (16/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  24% (17/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  25% (18/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  27% (19/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  28% (20/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  30% (21/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  31% (22/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  32% (23/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  34% (24/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  35% (25/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  37% (26/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  38% (27/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  40% (28/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  41% (29/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  42% (30/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  44% (31/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  45% (32/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  47% (33/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  48% (34/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  50% (35/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  51% (36/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  52% (37/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  54% (38/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  55% (39/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  57% (40/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  58% (41/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  60% (42/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  61% (43/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  62% (44/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  64% (45/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  65% (46/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  67% (47/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  68% (48/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  70% (49/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  71% (50/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  72% (51/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  74% (52/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  75% (53/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  77% (54/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  78% (55/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  80% (56/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  81% (57/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  82% (58/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  84% (59/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  85% (60/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  87% (61/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  88% (62/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  90% (63/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  91% (64/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  92% (65/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  94% (66/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  95% (67/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  97% (68/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects:  98% (69/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects: 100% (70/70)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Counting objects: 100% (70/70), done.[K
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   1% (1/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   2% (2/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   4% (3/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   5% (4/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   7% (5/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:   8% (6/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  10% (7/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  11% (8/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  13% (9/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  14% (10/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  16% (11/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  17% (12/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  19% (13/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  20% (14/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  22% (15/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  23% (16/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  25% (17/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  26% (18/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  28% (19/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  29% (20/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  31% (21/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  32% (22/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  34% (23/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  35% (24/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  37% (25/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  38% (26/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  40% (27/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  41% (28/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  43% (29/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  44% (30/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  46% (31/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  47% (32/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  49% (33/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  50% (34/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  52% (35/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  53% (36/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  55% (37/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  56% (38/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  58% (39/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  59% (40/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  61% (41/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  62% (42/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  64% (43/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  65% (44/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  67% (45/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  68% (46/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  70% (47/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  71% (48/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  73% (49/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  74% (50/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  76% (51/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  77% (52/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  79% (53/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  80% (54/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  82% (55/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  83% (56/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  85% (57/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  86% (58/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  88% (59/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  89% (60/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  91% (61/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  92% (62/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  94% (63/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  95% (64/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  97% (65/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects:  98% (66/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects: 100% (67/67)   [K
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Compressing objects: 100% (67/67), done.[K
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   1% (1/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   2% (2/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): remote: Total 70 (delta 29), reused 8 (delta 1), pack-reused 0[K
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   4% (3/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   5% (4/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   7% (5/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:   8% (6/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  10% (7/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  11% (8/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  12% (9/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  14% (10/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  15% (11/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  17% (12/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  18% (13/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  20% (14/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  21% (15/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  22% (16/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  24% (17/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  25% (18/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  27% (19/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  28% (20/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  30% (21/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  31% (22/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  32% (23/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  34% (24/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  35% (25/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  37% (26/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  38% (27/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  40% (28/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  41% (29/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  42% (30/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  44% (31/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  45% (32/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  47% (33/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  48% (34/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  50% (35/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  51% (36/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  52% (37/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  54% (38/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  55% (39/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  57% (40/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  58% (41/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  60% (42/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  61% (43/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  62% (44/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  64% (45/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  65% (46/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  67% (47/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  68% (48/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  70% (49/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  71% (50/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  72% (51/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  74% (52/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  75% (53/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  77% (54/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  78% (55/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  80% (56/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  81% (57/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  82% (58/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  84% (59/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  85% (60/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  87% (61/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  88% (62/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  90% (63/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  91% (64/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  92% (65/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  94% (66/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  95% (67/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  97% (68/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects:  98% (69/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects: 100% (70/70)
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking objects: 100% (70/70), done.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Working]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Waiting for headers] [1 InRelease 2
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 InRelease 11.3 kB/88.7 kB 13%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 242 kB] [Waiting f
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 242 kB] [3 InRelea
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease 31.6 kB/88.7 kB 36%] [1
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease 44.6 kB/88.7 kB 50%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 InRelease gpgv 88.7 kB] [3 InRele
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 88.7 kB] [4 InRele
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:5 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [353 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:6 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 88.7 kB] [6 Packag
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Packages 51.9 kB/8570 kB 1%] [5 P
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [4 InRelease gpgv 74.6 kB] [6 Packag
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [4 InRelease gpgv 74.6 kB] [6 Packag
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Packages store 0 B] [4 InRelease
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [125 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Packages store 0 B] [4 InRelease
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Packages store 0 B] [4 InRelease
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [4296 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Packages store 0 B] [4 InRelease
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 27% [5 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 29% [6 Packages 2375 kB/8570 kB 28%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 29% [7 Translation-en store 0 B] [6 Pac
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [2192 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 31% [7 Translation-en store 0 B] [6 Pac
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 38% [6 Packages 4176 kB/8570 kB 49%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 39% [8 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [247 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 39% [8 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 40% [6 Packages 4489 kB/8570 kB 52%] [1
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 40% [9 Translation-en store 0 B] [6 Pac
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 41% [6 Packages 4489 kB/8570 kB 52%] [1
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 43% [6 Packages 4804 kB/8570 kB 56%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 43% [10 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:11 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [140 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 50% [10 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 52% [10 Packages store 0 B] [6 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 54% [6 Packages 7108 kB/8570 kB 83%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 54% [11 Translation-en store 0 B] [6 Pa
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:12 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [4004 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 59% [11 Translation-en store 0 B] [6 Pa
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 61% [11 Translation-en store 0 B] [Wait
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [Waiting for headers] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [12 Packages store 0 B] [Waiting fo
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [Waiting for headers] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:13 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [2060 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:14 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [6 Packages store 0 B] [14 Translat
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 85% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 86% [6 Packages store 0 B] [15 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 86% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 86% [6 Packages store 0 B] [16 Translat
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 86% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [618 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 87% [6 Packages store 0 B] [17 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 89% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [229 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 90% [6 Packages store 0 B] [18 Translat
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 90% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [6996 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 90% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [937 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 91% [6 Packages store 0 B] [20 Packages
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 95% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [275 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 95% [6 Packages store 0 B] [21 Translat
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [6644 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [3556 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:24 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [1024 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [448 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:26 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [3496 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B] [Waiting for
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:27 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1604 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [13 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [14 Translation-en store 0 B]
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (50s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [14 Translation-en store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [14 Translation-en store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [15 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [16 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [17 Packages store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [18 Translation-en store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [19 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [20 Packages store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [21 Translation-en store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [22 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [23 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [24 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]              2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [25 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]             2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [26 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]             2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [27 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]             2814 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Fetched 17.0 MB in 7s (2445 kB/s)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 31%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 82%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 94%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 96%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 32%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 82%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 82%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 98%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 98%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m0s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 50%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 50%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... 6%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): The following additional packages will be installed:
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python3-software-properties
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): The following packages will be upgraded:
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python3-software-properties
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   software-properties-common
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 2 upgraded, 0 newly installed, 0 to remove and 121 not upgraded.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Need to get 33.7 kB of archives.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): After this operation, 13.3 kB of additional disk space will be used.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 software-properties-common all 0.96.24.32.8 [9992 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 software-properties-common 0 B/99
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 34% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-software-properties all 0.96.24.32.8 [23.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 34% [2 python3-software-properties 0 B/
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Fetched 33.7 kB in 0s (2484 kB/s)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ...
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 10%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 15%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 20%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 25%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 30%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 35%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 40%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 45%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 50%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 55%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 60%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 65%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 70%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 75%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 80%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 85%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 90%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 100%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 56574 files and directories currently installed.)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../software-properties-common_0.96.24.32.8_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking software-properties-common (0.96.24.32.8) over (0.96.24.32.7) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../python3-software-properties_0.96.24.32.8_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python3-software-properties (0.96.24.32.8) over (0.96.24.32.7) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python3-software-properties (0.96.24.32.8) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Processing triggers for dbus (1.12.2-1ubuntu1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up software-properties-common (0.96.24.32.8) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Connecting to security.ubuntu.com (
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Connecting to security.ubuntu.com (
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 InRelease gpgv 242 kB] [Connectin
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Waiting for headers] [Connecting to
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/restricted Sources [5324 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main Sources [829 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 88.7 kB] [5 Source
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [2 InRelease gpgv 88.7 kB] [Waiting
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe Sources [9051 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Hit:7 http://security.ubuntu.com/ubuntu bionic-security InRelease
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:8 http://ppa.launchpad.net/ansible/ansible/ubuntu bionic InRelease [15.9 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [2 InRelease g
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [2 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [6 Sources 884
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Sources [181 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Sources [4612 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted Sources [2068 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Sources [271 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Sources [239 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [3 InRelease gpgv 74.6 kB]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [3 InRelease g
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main Sources [984 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Sources [2064 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [8 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:16 http://security.ubuntu.com/ubuntu bionic-security/multiverse Sources [2744 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [8 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [8 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:17 http://security.ubuntu.com/ubuntu bionic-security/universe Sources [129 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [6 Sources store 0 B] [8 InRelease g
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 96% [6 Sources store 0 B] [17 Sources 2
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:18 http://ppa.launchpad.net/ansible/ansible/ubuntu bionic/main amd64 Packages [524 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B] [17 Sources 1
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:19 http://security.ubuntu.com/ubuntu bionic-security/restricted Sources [1504 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B] [Waiting for
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:20 http://security.ubuntu.com/ubuntu bionic-security/main Sources [91.2 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B] [20 Sources 2
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:21 http://ppa.launchpad.net/ansible/ansible/ubuntu bionic/main Translation-en [344 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B] [20 Sources 2
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [6 Sources store 0 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [9 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [10 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [11 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [12 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [13 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 98% [14 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [15 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [16 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [18 Packages store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [17 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 99% [19 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [21 Translation-en store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [20 Sources store 0 B]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Fetched 10.8 MB in 2s (4830 kB/s)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 8%
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m10s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 53%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 77%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 78%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 82%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 82%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 84%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 91%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 93%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 97%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 98%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 98%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 99%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... 100%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading package lists... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 50%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree... 50%
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Building dependency tree
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... 11%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Reading state information... Done
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): The following additional packages will be installed:
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   libpython-stdlib
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   libpython2.7-minimal
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   libpython2.7-stdlib python
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-asn1crypto
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cffi-backend python-crypto
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cryptography python-enum34
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-httplib2 python-idna
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-ipaddress python-jinja2
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-markupsafe python-minimal
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-paramiko python-pkg-resources
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-pyasn1 python-setuptools
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-six python-yaml python2.7
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python2.7-minimal sshpass
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Suggested packages:
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-doc python-tk
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-crypto-doc
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cryptography-doc
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cryptography-vectors
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-enum34-doc python-jinja2-doc
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-gssapi python-setuptools-doc
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python2.7-doc binutils
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   binfmt-support
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): The following NEW packages will be installed:
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   ansible libpython-stdlib
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   libpython2.7-minimal
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   libpython2.7-stdlib python
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-asn1crypto
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cffi-backend python-crypto
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-cryptography python-enum34
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-httplib2 python-idna
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-ipaddress python-jinja2
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-markupsafe python-minimal
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-paramiko python-pkg-resources
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-pyasn1 python-setuptools
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python-six python-yaml python2.7
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec):   python2.7-minimal sshpass
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0 upgraded, 25 newly installed, 0 to remove and 121 not upgraded.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Need to get 10.7 MB of archives.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): After this operation, 73.4 MB of additional disk space will be used.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [Working]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-minimal amd64 2.7.15~rc1-1ubuntu0.1 [334 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 0% [1 libpython2.7-minimal 0 B/334 kB 0
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 3% [Connecting to ppa.launchpad.net (91
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python2.7-minimal amd64 2.7.15~rc1-1ubuntu0.1 [1304 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 3% [2 python2.7-minimal 0 B/1304 kB 0%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 14% [Connecting to ppa.launchpad.net (9
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-minimal amd64 2.7.15~rc1-1 [28.1 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 14% [3 python-minimal 0 B/28.1 kB 0%] [
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 15% [Connecting to ppa.launchpad.net (9
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-stdlib amd64 2.7.15~rc1-1ubuntu0.1 [1912 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 15% [4 libpython2.7-stdlib 0 B/1912 kB
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 30% [Connecting to ppa.launchpad.net (9
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python2.7 amd64 2.7.15~rc1-1ubuntu0.1 [238 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 30% [5 python2.7 0 B/238 kB 0%] [Connec
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 33% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libpython-stdlib amd64 2.7.15~rc1-1 [7620 B]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 33% [6 libpython-stdlib 0 B/7620 B 0%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 33% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python amd64 2.7.15~rc1-1 [140 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 33% [7 python 0 B/140 kB 0%] [Waiting f
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 35% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-markupsafe amd64 1.0-1build1 [13.0 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 35% [8 python-markupsafe 0 B/13.0 kB 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 36% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-jinja2 all 2.10-1 [94.6 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 36% [9 python-jinja2 0 B/94.6 kB 0%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 38% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-yaml amd64 3.12-1build2 [115 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 38% [10 python-yaml 0 B/115 kB 0%] [Wai
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 39% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-asn1crypto all 0.24.0-1 [72.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 39% [11 python-asn1crypto 0 B/72.7 kB 0
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 41% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-cffi-backend amd64 1.11.5-1 [63.4 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 41% [12 python-cffi-backend 0 B/63.4 kB
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 42% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-enum34 all 1.1.6-2 [34.8 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 42% [13 python-enum34 0 B/34.8 kB 0%] [
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 43% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-idna all 2.6-1 [32.4 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 43% [14 python-idna 0 B/32.4 kB 0%] [Wa
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 44% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-ipaddress all 1.0.17-1 [18.2 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 44% [15 python-ipaddress 0 B/18.2 kB 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 45% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-six all 1.11.0-2 [11.3 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 45% [16 python-six 0 B/11.3 kB 0%] [Wai
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 46% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python-cryptography amd64 2.1.4-1ubuntu1.2 [221 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 46% [17 python-cryptography 0 B/221 kB
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 48% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-pyasn1 all 0.4.2-3 [46.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 48% [18 python-pyasn1 0 B/46.7 kB 0%] [
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 50% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python-paramiko all 2.0.0-1ubuntu1.2 [110 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 50% [19 python-paramiko 0 B/110 kB 0%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 51% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python-httplib2 all 0.9.2+dfsg-1ubuntu0.1 [34.7 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 51% [20 python-httplib2 0 B/34.7 kB 0%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 52% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:21 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-crypto amd64 2.6.1-8ubuntu2 [244 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 52% [21 python-crypto 0 B/244 kB 0%] [W
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 55% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:22 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-pkg-resources all 39.0.1-2 [128 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 55% [22 python-pkg-resources 0 B/128 kB
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 57% [Waiting for headers]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:23 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python-setuptools all 39.0.1-2 [329 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 57% [23 python-setuptools 0 B/329 kB 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:24 http://ppa.launchpad.net/ansible/ansible/ubuntu bionic/main amd64 ansible all 2.8.0-1ppa~bionic [5137 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 57% [23 python-setuptools 0 B/329 kB 0%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 60% [24 ansible 14.2 kB/5137 kB 0%]
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Get:25 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 sshpass amd64 1.06-1 [10.5 kB]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 60% [25 sshpass 0 B/10.5 kB 0%] [24 ans
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 61% [24 ansible 14.2 kB/5137 kB 0%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 62% [24 ansible 147 kB/5137 kB 3%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 63% [24 ansible 304 kB/5137 kB 6%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 64% [24 ansible 476 kB/5137 kB 9%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 66% [24 ansible 641 kB/5137 kB 12%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 67% [24 ansible 818 kB/5137 kB 16%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 68% [24 ansible 973 kB/5137 kB 19%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 69% [24 ansible 1145 kB/5137 kB 22%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 71% [24 ansible 1352 kB/5137 kB 26%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 72% [24 ansible 1546 kB/5137 kB 30%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 74% [24 ansible 1761 kB/5137 kB 34%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 75% [24 ansible 1972 kB/5137 kB 38%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 77% [24 ansible 2167 kB/5137 kB 42%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 79% [24 ansible 2377 kB/5137 kB 46%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 80% [24 ansible 2605 kB/5137 kB 51%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 82% [24 ansible 2845 kB/5137 kB 55%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 84% [24 ansible 3091 kB/5137 kB 60%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 85% [24 ansible 3298 kB/5137 kB 64%]
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m20s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 87% [24 ansible 3517 kB/5137 kB 68%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 89% [24 ansible 3712 kB/5137 kB 72%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 90% [24 ansible 3893 kB/5137 kB 76%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 92% [24 ansible 4116 kB/5137 kB 80%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 93% [24 ansible 4344 kB/5137 kB 85%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 95% [24 ansible 4593 kB/5137 kB 89%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 97% [24 ansible 4901 kB/5137 kB 95%]
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): 100% [Working]              455 kB/s 0s
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Fetched 10.7 MB in 13s (849 kB/s)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package libpython2.7-minimal:amd64.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ...
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 10%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 15%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 20%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 25%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 30%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 35%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 40%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 45%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 50%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 55%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 60%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 65%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 70%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 75%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 80%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 85%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 90%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 100%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 56576 files and directories currently installed.)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../0-libpython2.7-minimal_2.7.15~rc1-1ubuntu0.1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking libpython2.7-minimal:amd64 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python2.7-minimal.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../1-python2.7-minimal_2.7.15~rc1-1ubuntu0.1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python2.7-minimal (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-minimal.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../2-python-minimal_2.7.15~rc1-1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-minimal (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package libpython2.7-stdlib:amd64.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../3-libpython2.7-stdlib_2.7.15~rc1-1ubuntu0.1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking libpython2.7-stdlib:amd64 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python2.7.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../4-python2.7_2.7.15~rc1-1ubuntu0.1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python2.7 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package libpython-stdlib:amd64.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../5-libpython-stdlib_2.7.15~rc1-1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking libpython-stdlib:amd64 (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up libpython2.7-minimal:amd64 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python2.7-minimal (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Linking and byte-compiling packages for runtime python2.7...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-minimal (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ...
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 5%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 10%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 15%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 20%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 25%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 30%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 35%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 40%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 45%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 50%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 55%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 60%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 65%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 70%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 75%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 80%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 85%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 90%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 95%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 100%
+module.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): (Reading database ... 57323 files and directories currently installed.)
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../00-python_2.7.15~rc1-1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-markupsafe.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../01-python-markupsafe_1.0-1build1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-markupsafe (1.0-1build1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-jinja2.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../02-python-jinja2_2.10-1_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-jinja2 (2.10-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-yaml.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../03-python-yaml_3.12-1build2_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-yaml (3.12-1build2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-asn1crypto.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../04-python-asn1crypto_0.24.0-1_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-asn1crypto (0.24.0-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-cffi-backend.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../05-python-cffi-backend_1.11.5-1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-cffi-backend (1.11.5-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-enum34.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../06-python-enum34_1.1.6-2_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-enum34 (1.1.6-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-idna.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../07-python-idna_2.6-1_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-idna (2.6-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-ipaddress.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../08-python-ipaddress_1.0.17-1_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-ipaddress (1.0.17-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-six.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../09-python-six_1.11.0-2_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-six (1.11.0-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-cryptography.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../10-python-cryptography_2.1.4-1ubuntu1.2_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-cryptography (2.1.4-1ubuntu1.2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-pyasn1.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../11-python-pyasn1_0.4.2-3_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-pyasn1 (0.4.2-3) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-paramiko.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../12-python-paramiko_2.0.0-1ubuntu1.2_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-paramiko (2.0.0-1ubuntu1.2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-httplib2.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../13-python-httplib2_0.9.2+dfsg-1ubuntu0.1_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-httplib2 (0.9.2+dfsg-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-crypto.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../14-python-crypto_2.6.1-8ubuntu2_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-crypto (2.6.1-8ubuntu2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-pkg-resources.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../15-python-pkg-resources_39.0.1-2_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-pkg-resources (39.0.1-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package python-setuptools.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../16-python-setuptools_39.0.1-2_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking python-setuptools (39.0.1-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package sshpass.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../17-sshpass_1.06-1_amd64.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking sshpass (1.06-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Selecting previously unselected package ansible.
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Preparing to unpack .../18-ansible_2.8.0-1ppa~bionic_all.deb ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Unpacking ansible (2.8.0-1ppa~bionic) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Processing triggers for mime-support (3.60ubuntu1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up sshpass (1.06-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up libpython2.7-stdlib:amd64 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python2.7 (2.7.15~rc1-1ubuntu0.1) ...
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m30s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up libpython-stdlib:amd64 (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python (2.7.15~rc1-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-idna (2.6-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-yaml (3.12-1build2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-asn1crypto (0.24.0-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-crypto (2.6.1-8ubuntu2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-pyasn1 (0.4.2-3) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-pkg-resources (39.0.1-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-markupsafe (1.0-1build1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-httplib2 (0.9.2+dfsg-1ubuntu0.1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-cffi-backend (1.11.5-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-six (1.11.0-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-enum34 (1.1.6-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-ipaddress (1.0.17-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-setuptools (39.0.1-2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-jinja2 (2.10-1) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-cryptography (2.1.4-1ubuntu1.2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up python-paramiko (2.0.0-1ubuntu1.2) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): Setting up ansible (2.8.0-1ppa~bionic) ...
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m [WARNING]: provided hosts list is empty, only localhost is available. Note[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35mthat the implicit localhost does not match 'all'[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m[0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): PLAY [localhost] ***************************************************************
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Gathering Facts] *********************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;32mok: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [add repo] ****************************************************************
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m40s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (1m50s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [install openjdk-8] *******************************************************
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m0s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m10s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m20s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m30s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m40s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m [WARNING]: Could not find aptitude. Using apt-get instead[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Ensure group "tomcat" exists] ********************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Add the user 'tomcat' with a specific uid and a primary group of 'tomcat'] ***
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Download apache-tomcat-8.5.40.tar.gz] ************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [create a directory tomcat if not exists] *********************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Extract archive] *********************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [change th directory to /opt/tomcat] **************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Change ownership of Tomcat installation] *********************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Configure Tomcat server] *************************************************
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still creating... (2m50s elapsed)[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [Configure Tomcat users] **************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [configure Manager] *******************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [configure Host-Manager] **************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [move the war file from /tmp to webaps path] ******************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): TASK [changing permisssions for webapps] ***************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m [WARNING]: Consider using the file module with mode rather than running[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m'chmod'.  If you need to use command because file is insufficient you can add[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m'warn: false' to this command task or set 'command_warnings=False' in[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35mansible.cfg to get rid of this message.[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [1;35m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): RUNNING HANDLER [tomcat-8-restart] *********************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mchanged: [localhost][0m
+[0m[0m
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): PLAY RECAP *********************************************************************
+[0m[0mmodule.TF_ANSIBLE.aws_instance.GameofLife (remote-exec): [0;33mlocalhost[0m                  : [0;32mok=17  [0m [0;33mchanged=16  [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Creation complete after 2m52s (ID: i-0073219643424fc84)[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+Gameoflifeip = 3.80.28.105[0m
+[Pipeline] sh
++ sleep 2m
+[Pipeline] sh
++ terraform destroy -var accesskey=AKIAUCPFQ2VRVIA46SVP -var secretekey=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 -auto-approve .
+[0m[1maws_vpc.MyVpc: Refreshing state... (ID: vpc-09619030abaf66b3c)[0m
+[0m[1maws_subnet.mysubnet: Refreshing state... (ID: subnet-0ad20335b9990dc6d)[0m
+[0m[1maws_internet_gateway.myigw: Refreshing state... (ID: igw-00db91edd243c6d9a)[0m
+[0m[1maws_security_group.mysg: Refreshing state... (ID: sg-0df7893fe6eef9df9)[0m
+[0m[1maws_route_table.myrt: Refreshing state... (ID: rtb-0c0347cba533cba57)[0m
+[0m[1maws_route_table_association.myasso: Refreshing state... (ID: rtbassoc-04a97839468e7532e)[0m
+[0m[1maws_instance.GameofLife: Refreshing state... (ID: i-0073219643424fc84)[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table_association.myasso: Destroying... (ID: rtbassoc-04a97839468e7532e)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Destroying... (ID: i-0073219643424fc84)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table_association.myasso: Destruction complete after 0s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table.myrt: Destroying... (ID: rtb-0c0347cba533cba57)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_route_table.myrt: Destruction complete after 1s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Destroying... (ID: igw-00db91edd243c6d9a)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still destroying... (ID: i-0073219643424fc84, 10s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Still destroying... (ID: igw-00db91edd243c6d9a, 10s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Still destroying... (ID: i-0073219643424fc84, 20s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Still destroying... (ID: igw-00db91edd243c6d9a, 20s elapsed)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_internet_gateway.myigw: Destruction complete after 24s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_instance.GameofLife: Destruction complete after 30s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_subnet.mysubnet: Destroying... (ID: subnet-0ad20335b9990dc6d)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_security_group.mysg: Destroying... (ID: sg-0df7893fe6eef9df9)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_subnet.mysubnet: Destruction complete after 1s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_security_group.mysg: Destruction complete after 1s[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_vpc.MyVpc: Destroying... (ID: vpc-09619030abaf66b3c)[0m[0m
+[0m[1mmodule.TF_ANSIBLE.aws_vpc.MyVpc: Destruction complete after 0s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 7 destroyed.[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
